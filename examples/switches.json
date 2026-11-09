@@ -1,0 +1,39 @@
+{
+  "framework": {
+    "arguments": 3,
+    "attacks": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  },
+  "switches": [
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "query": {
+    "semantics": "preferred",
+    "mode": "credulous",
+    "argument": 1,
+    "value": true
+  }
+}
