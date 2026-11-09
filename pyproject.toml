@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "argumentlab"
+version = "0.1.0"
+description = "Exact finite abstract argumentation with complete defense and labelling witnesses"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Midya Rahmani"}]
+dependencies = []
+
+[project.scripts]
+argumentlab = "argumentlab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["argumentlab*"]
