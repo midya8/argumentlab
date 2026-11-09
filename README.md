@@ -47,3 +47,20 @@ Counts describe original bounded controls and test coverage, not speed, solver q
 Eight arguments maximum, all subsets enumerated. Supplied attack relations are assumptions, not evidence about real-world truth, argument strength, debate winners or safe decisions. This uses established Dung semantics. No scalable/new solver, structured-argument construction, dialogue game, probability model, benchmark superiority or machine-checked proof claim. Native/browser JSON parser differences are documented in the method. Not affiliated with existing ArguLab or ARGTEACH systems; no external solver code, examples or datasets copied.
 
 Original implementation, independent checks and synthetic controls: Midya Rahmani. MIT license.
+
+
+## Attack-switch sensitivity extension
+
+[Live edit-cube inspector](https://midya8.github.io/argumentlab/switches.html) · [Method and dynamics sources](SWITCHES.md)
+
+Hold arguments and semantics fixed, supply at most six switchable attack pairs, then inspect every configuration. Retain all successful configurations, all tied minimum-edit matches and all inclusion-minimal matches, which can be larger. Every configuration keeps complete extension families, exact query witnesses and full subset classifications; every single-switch cube edge retains gained/lost extensions and old/new answers. Select a graph for its full defense, grounded and labelling audit.
+
+Classical skepticism and nullable nonvacuous skepticism are distinct modes. A null nonvacuous answer matches neither true nor false. Original strict controls expose minimal-vs-minimum and acceptance loss/regain. Six arguments maximum, exhaustive enumeration, hypothetical supplied edits only: failure is relative to the allowed switches, not a general impossibility. No causal, strategic or new solver claim. Established enforcement research is attributed, not relabelled as original theory.
+
+```sh
+argumentlab-switches examples/switches.json --configuration-mask 3
+python -m argumentlab.switches examples/switches.json --output /tmp/switch-report.json
+PYTHONPATH=. python tools/build_switch_audits.py
+```
+
+All 19 original tests and five original Node/Chrome tests remain. Combined checks now run 32 Python tests on four versions and ten Node/actual-Chrome tests. New native checks cover every one of the 256 two-argument base-graph/switch-set pairs, all 72 semantics/mode/target combinations, 80 seeded larger systems and every retained control with an independent family oracle. Cross-language equality covers 256 full sensitivity reports, 21 retained reports and another 152 mode/seeded cases. The new browser suite checks all 209 configurations, 5,205 subset/defense records, 802 acceptance cards, 423 transitions and both exports, with all 21 controls at 320/390/1280. Installed wheel reproduces both original and switch reports, five module origins and both console/module CLIs. See the extension method for exact scalar counts and boundaries.

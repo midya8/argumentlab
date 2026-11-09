@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "argumentlab"
-version = "0.1.0"
+version = "0.2.0"
 description = "Exact finite abstract argumentation with complete defense and labelling witnesses"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,6 +14,7 @@ dependencies = []
 
 [project.scripts]
 argumentlab = "argumentlab.cli:main"
+argumentlab-switches = "argumentlab.switches:main"
 
 [tool.setuptools.packages.find]
 include = ["argumentlab*"]

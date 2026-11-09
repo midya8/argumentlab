@@ -12,4 +12,8 @@ unset PYTHONPATH
 "$tmp/env/bin/argumentlab" "$root/examples/demo.json" --output "$tmp/console.json"
 "$tmp/env/bin/python" -m argumentlab "$root/examples/demo.json" --output "$tmp/module.json"
 cmp "$tmp/console.json" "$tmp/module.json"
-printf '%s\n' 'Installed console/module CLI and all 19 reports/four module origins passed'
+printf '%s\n' 'Installed console/module CLI and all 19 reports/five module origins passed'
+"$tmp/env/bin/argumentlab-switches" "$root/examples/switches.json" --configuration-mask 3 --output "$tmp/switch-console.json"
+"$tmp/env/bin/python" -m argumentlab.switches "$root/examples/switches.json" --configuration-mask 3 --output "$tmp/switch-module.json"
+cmp "$tmp/switch-console.json" "$tmp/switch-module.json"
+printf '%s\n' 'Installed attack-switch console/module CLI,21 reports and209 configurations passed'
