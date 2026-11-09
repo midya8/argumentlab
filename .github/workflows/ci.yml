@@ -20,6 +20,11 @@ jobs:
           PYTHONPATH=. python tools/build_audits.py
           cmp docs/audits.json /tmp/audits.json
           cmp examples/demo.json /tmp/demo.json
+          cp docs/switch-audits.json /tmp/switch-audits.json
+          cp examples/switches.json /tmp/switches.json
+          PYTHONPATH=. python tools/build_switch_audits.py
+          cmp docs/switch-audits.json /tmp/switch-audits.json
+          cmp examples/switches.json /tmp/switches.json
   browser-and-wheel:
     runs-on: ubuntu-latest
     steps:
