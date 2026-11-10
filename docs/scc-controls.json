@@ -1,0 +1,310 @@
+[
+  {
+    "name": "empty framework",
+    "note": "One empty extension, not no extension.",
+    "framework": {
+      "arguments": 0,
+      "attacks": []
+    }
+  },
+  {
+    "name": "isolated arguments",
+    "note": "All isolated arguments are selected.",
+    "framework": {
+      "arguments": 3,
+      "attacks": []
+    }
+  },
+  {
+    "name": "a source is not optional",
+    "note": "Global naive admits the target; SCC recursion selects the source.",
+    "framework": {
+      "arguments": 2,
+      "attacks": [
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "self-attacking source",
+    "note": "A self-attacking argument is excluded; its attack does not by itself defeat its target.",
+    "framework": {
+      "arguments": 2,
+      "attacks": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "odd cycle",
+    "note": "One strongly connected component uses the base semantics.",
+    "framework": {
+      "arguments": 3,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "six-cycle distinction",
+    "note": "A maximal conflict-free set need not have an inclusion-maximal range.",
+    "framework": {
+      "arguments": 6,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "deletion splits the SCC",
+    "note": "An incoming choice deletes a cycle vertex; the remainder needs fresh SCCs.",
+    "framework": {
+      "arguments": 4,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "recursive deletion cascade",
+    "note": "Deletion splits a four-cycle into a path; the next level deletes again.",
+    "framework": {
+      "arguments": 5,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "conditional incoming attack",
+    "note": "Only a selected external attacker deletes a downstream argument.",
+    "framework": {
+      "arguments": 5,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "global stage is not local stage",
+    "note": "Local range maximality is evaluated only in the surviving component.",
+    "framework": {
+      "arguments": 4,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "global stage rejected by recursion",
+    "note": "The incoming direction changes which global range winners survive.",
+    "framework": {
+      "arguments": 3,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "independent cycles",
+    "note": "Choices in disconnected components combine; local ties are not arbitrarily broken.",
+    "framework": {
+      "arguments": 4,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "all self-attacking",
+    "note": "No argument can be selected, but the empty extension exists.",
+    "framework": {
+      "arguments": 3,
+      "attacks": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "opposite attacks and a downstream choice",
+    "note": "The chosen side determines whether the last singleton survives.",
+    "framework": {
+      "arguments": 3,
+      "attacks": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    }
+  }
+]

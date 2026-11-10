@@ -78,3 +78,7 @@ Native `parse` bounds UTF-8 bytes at65,536 and rejects duplicate JSON keys. Brow
 ## Boundaries
 
 This is established finite abstract argumentation implemented for inspection. Every supplied attack is an assumption. Argument internals, evidence quality, preferences, support, uncertainty, argument generation and real-world consequences are outside the model. No new algorithm, scalability, benchmark superiority, calibrated probability, dialogue strategy, certified proof or machine-checked correctness claim. Original implementation, independent checks and synthetic controls: Midya Rahmani.
+
+## SCC-recursive extension
+
+Version0.3 adds a separate CF2/stage2 inspector with a smaller six-argument bound. Its complete schema, independent fixed-point verifier, original controls, optional published encoding comparison, parser differences, exact reproduction and inspected foundations are documented in [SCC.md](SCC.md). The defense and switch contracts above are preserved.
