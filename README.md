@@ -64,3 +64,16 @@ PYTHONPATH=. python tools/build_switch_audits.py
 ```
 
 All 19 original tests and five original Node/Chrome tests remain. Combined checks now run 32 Python tests on four versions and ten Node/actual-Chrome tests. New native checks cover every one of the 256 two-argument base-graph/switch-set pairs, all 72 semantics/mode/target combinations, 80 seeded larger systems and every retained control with an independent family oracle. Cross-language equality covers 256 full sensitivity reports, 21 retained reports and another 152 mode/seeded cases. The new browser suite checks all 209 configurations, 5,205 subset/defense records, 802 acceptance cards, 423 transitions and both exports, with all 21 controls at 320/390/1280. Installed wheel reproduces both original and switch reports, five module origins and both console/module CLIs. See the extension method for exact scalar counts and boundaries.
+
+## SCC recursion: a cycle can split after a choice
+
+[Open the CF2/stage2 inspector](https://midya8.github.io/argumentlab/scc.html) · [Exact contract, reproduction and inspected foundations](SCC.md)
+
+Version0.3 adds a separate six-argument SCC-recursive inspector. Every candidate retains all component-defeat edges, restricted child graphs and child membership obligations. Recompute SCCs after deletion and drill into the surviving child with the selected part preserved. Compare global naive/stage against CF2/stage2 without treating them as a ranking. An independent set-based verifier checks every record and a second published fixed-point characterization; optional hash-pinned ASPARTIX/clingo checks agree on725 frameworks and1,450 extension families. Native/JavaScript full reports agree on725 frameworks,3,052 induced subproblems,16,375 candidates and38,184 obligations.
+
+```sh
+argumentlab-scc examples/scc.json --output /tmp/scc.json
+python -m argumentlab.scc --verify /tmp/scc.json
+```
+
+The full suite now has39 Python functions on3.10-3.13 and15 Node/Chrome tests. New Chrome checks cover42 reports at320/390/1280,171 subproblems,1,056 candidate selections and14 actual independently verified downloads. The installed wheel reproduces19 defense,21 switch and14 SCC controls outside the checkout, checks seven module origins, rejects14 forged SCC reports and checks both generation and verification entrypoints. These are bounded coverage counts, not benchmark claims. Existing inspectors remain separate; published semantics/encodings are credited inSCC.md. No new theorem, scalable solver, human persuasion or universal-semantics ranking is claimed.
