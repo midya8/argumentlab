@@ -25,6 +25,11 @@ jobs:
           PYTHONPATH=. python tools/build_switch_audits.py
           cmp docs/switch-audits.json /tmp/switch-audits.json
           cmp examples/switches.json /tmp/switches.json
+          cp docs/ideal-controls.json /tmp/ideal-controls.json
+          cp examples/ideal.json /tmp/ideal.json
+          PYTHONPATH=. python tools/ideal_cases.py
+          cmp docs/ideal-controls.json /tmp/ideal-controls.json
+          cmp examples/ideal.json /tmp/ideal.json
   browser-and-wheel:
     runs-on: ubuntu-latest
     steps:
