@@ -12,8 +12,15 @@ unset PYTHONPATH
 "$tmp/env/bin/argumentlab" "$root/examples/demo.json" --output "$tmp/console.json"
 "$tmp/env/bin/python" -m argumentlab "$root/examples/demo.json" --output "$tmp/module.json"
 cmp "$tmp/console.json" "$tmp/module.json"
-printf '%s\n' 'Installed console/module CLI and all 19 reports/five module origins passed'
+printf '%s\n' 'Installed console/module CLI and all 19 reports/seven module origins passed'
 "$tmp/env/bin/argumentlab-switches" "$root/examples/switches.json" --configuration-mask 3 --output "$tmp/switch-console.json"
 "$tmp/env/bin/python" -m argumentlab.switches "$root/examples/switches.json" --configuration-mask 3 --output "$tmp/switch-module.json"
 cmp "$tmp/switch-console.json" "$tmp/switch-module.json"
 printf '%s\n' 'Installed attack-switch console/module CLI,21 reports and209 configurations passed'
+
+"$tmp/env/bin/argumentlab-scc" "$root/examples/scc.json" --output "$tmp/scc-console.json"
+"$tmp/env/bin/python" -m argumentlab.scc "$root/examples/scc.json" --output "$tmp/scc-module.json"
+cmp "$tmp/scc-console.json" "$tmp/scc-module.json"
+"$tmp/env/bin/argumentlab-scc" --verify "$tmp/scc-console.json"
+"$tmp/env/bin/python" -m argumentlab.scc --verify "$tmp/scc-module.json"
+printf '%s\n' 'Installed SCC module/console generation and independent verification,14 controls and14 rejected forgeries passed'
