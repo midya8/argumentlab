@@ -6,7 +6,7 @@ import sys
 from argumentlab import audit
 fixture=pathlib.Path(sys.argv[1]);source=pathlib.Path(sys.argv[2]).resolve()
 origins={}
-for name in ['argumentlab','argumentlab.core','argumentlab.cli','argumentlab.__main__','argumentlab.switches','argumentlab.scc','argumentlab.scc_verify']:
+for name in ['argumentlab','argumentlab.core','argumentlab.cli','argumentlab.__main__','argumentlab.switches','argumentlab.scc','argumentlab.scc_verify','argumentlab.ideal','argumentlab.ideal_input','argumentlab.ideal_verify','argumentlab.ideal_cli']:
     path=pathlib.Path(importlib.import_module(name).__file__).resolve()
     assert source not in path.parents,(name,path)
     assert 'site-packages' in str(path),(name,path)
@@ -33,3 +33,14 @@ for row in controls:
     except (ValueError,TypeError): pass
     else: raise AssertionError('forged root accepted')
 print(json.dumps({'installed_scc_reports':len(controls),'rejected_forgeries':len(controls)}))
+
+from argumentlab.ideal import audit_ideal
+from argumentlab.ideal_verify import verify_ideal
+controls=json.loads((fixture.parent/'ideal-controls.json').read_text())
+for row in controls:
+    r=audit_ideal(row['framework']);assert verify_ideal(r)
+    forged=json.loads(json.dumps(r));forged['cores'][0]['extension_mask']=True
+    try:verify_ideal(forged)
+    except (ValueError,TypeError):pass
+    else:raise AssertionError('forged core accepted')
+print(json.dumps({'installed_ideal_reports':len(controls),'rejected_forgeries':len(controls)}))
