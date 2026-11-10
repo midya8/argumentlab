@@ -77,3 +77,13 @@ python -m argumentlab.scc --verify /tmp/scc.json
 ```
 
 The full suite now has39 Python functions on3.10-3.13 and15 Node/Chrome tests. New Chrome checks cover42 reports at320/390/1280,171 subproblems,1,056 candidate selections and14 actual independently verified downloads. The installed wheel reproduces19 defense,21 switch and14 SCC controls outside the checkout, checks seven module origins, rejects14 forged SCC reports and checks both generation and verification entrypoints. These are bounded coverage counts, not benchmark claims. Existing inspectors remain separate; published semantics/encodings are credited inSCC.md. No new theorem, scalable solver, human persuasion or universal-semantics ranking is claimed.
+
+## ArgumentLab0.4: unanimity is not self-defense
+
+[Live ideal/eager inspector](https://midya8.github.io/argumentlab/ideal.html) · [Method, scope and inspected foundations](IDEAL.md)
+
+Intersect preferred or semi-stable positions, then keep the greatest subset that defends itself against every original attacker. A shared argument can lose its defender when another shared argument is pruned. The default original control shows152→136→128→128, with isolated a7 surviving. A single pass and an induced-pool graph both give the wrong answer.
+
+Inspect both parent families, simultaneous removal rounds, every original attacker and response, all256 bounded candidate subsets, strict eligible supersets and per-argument membership/removal records. Export the certificate and replay it with `argumentlab-ideal report.json --verify`. Fourteen original controls, all531 graphs on0..3 arguments and100 seeded graphs agree across native bitsets, independent complete-labelling replay and JavaScript sets. Optional actual PyArg2.0.2 matches the same645 frameworks' ideal/eager families.
+
+Finite0..8 arguments only. Established ideal/eager semantics, not new theory, truth scoring, persuasion, scalable solving or arbitrary infinite-framework eager uniqueness. Original attackers outside the shared pool still count.
