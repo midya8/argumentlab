@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Exact finite ideal/eager argumentation cores, skeptical intersections, original-graph defense pruning and independently replayable certificates."
+    />
+    <title>ArgumentLab | Everyone includes it. Who defends it?</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="ideal-style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">ARGUMENTLAB / DEFENSE</a
+      ><a href="scc.html">SCC RECURSION</a
+      ><a href="https://github.com/midya8/argumentlab/blob/main/IDEAL.md"
+        >METHOD & SOURCES ↗</a
+      >
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">IDEAL & EAGER / SKEPTICAL POSITIONS</p>
+        <h1>Every extension includes it.<br />Who defends it?</h1>
+        <p class="lead">
+          Arguments can occur in every preferred position without forming a
+          defensible shared position. Keep the original attackers. Remove
+          unsupported arguments. Then check who loses their defender next.
+        </p>
+        <aside>
+          Eight arguments. Every subset. Finite published ideal/eager semantics,
+          not a vote, truth detector or ranking of people. A skeptical
+          intersection is a candidate pool, not automatically an admissible
+          position.
+        </aside>
+      </section>
+      <section>
+        <p class="eyebrow">01 / ONE SUPPLIED ATTACK GRAPH</p>
+        <h2>Agreement is only the start.</h2>
+        <label for="control">Original synthetic control</label
+        ><select id="control"></select>
+        <p id="control-note"></p>
+        <details>
+          <summary>Edit the bounded JSON framework</summary>
+          <label for="input"
+            >Arguments is a count. Attacks are [source,target] index
+            pairs.</label
+          ><textarea id="input" rows="14" spellcheck="false"></textarea
+          ><button id="run">Inspect skeptical cores</button>
+        </details>
+        <p id="status" role="status" aria-live="polite">Loading controls.</p>
+      </section>
+      <div id="results" hidden>
+        <section>
+          <p class="eyebrow">02 / COMPARE TWO DIFFERENT PARENT FAMILIES</p>
+          <h2>Same graph. Different shared cores.</h2>
+          <div id="families" class="cards"></div>
+          <aside id="inclusions"></aside>
+          <div class="core-tabs">
+            <button id="ideal" aria-pressed="true">
+              Ideal / preferred parents</button
+            ><button id="eager" aria-pressed="false">
+              Eager / semi-stable parents
+            </button>
+          </div>
+          <div id="core-summary" class="cards"></div>
+          <aside id="contrast"></aside>
+          <p class="note">
+            Maximal means set inclusion. These finite families have a unique
+            greatest admissible core; this is not a largest-cardinality
+            shortcut. Parent families are nonempty even when their only
+            extension is the empty set.
+          </p>
+        </section>
+        <section>
+          <p class="eyebrow">03 / KEEP EVERY ORIGINAL ATTACKER</p>
+          <h2>Defense can fail in a cascade.</h2>
+          <label for="round">Simultaneous pruning round</label
+          ><select id="round"></select>
+          <div class="grid">
+            <div class="graph-panel">
+              <svg
+                id="graph"
+                viewBox="0 0 400 400"
+                role="img"
+                aria-label="Original finite argument graph at selected pruning round"
+              ></svg>
+              <p class="note">
+                Green nodes are in the current position. Red rings mark removals
+                in this round. Gray nodes remain original attackers, not deleted
+                arguments. All supplied attacks stay visible.
+              </p>
+            </div>
+            <div>
+              <div id="round-summary" class="cards"></div>
+              <p id="round-note"></p>
+            </div>
+          </div>
+          <h3>Every current member's original attackers and responses</h3>
+          <p class="note">
+            Tables scroll sideways on narrow screens. The responses use the
+            current position, not the final core.
+          </p>
+          <div class="table-wrap"><table id="round-defense"></table></div>
+          <h3>The entire descending trace</h3>
+          <div class="table-wrap"><table id="trace-table"></table></div>
+        </section>
+        <section>
+          <p class="eyebrow">04 / CHECK EVERY SUBSET, NOT JUST THE WINNER</p>
+          <h2>One greatest core.<br />Every alternative retained.</h2>
+          <label for="candidate"
+            >Candidate subset in the original framework</label
+          ><select id="candidate"></select>
+          <div id="candidate-summary" class="cards"></div>
+          <div class="table-wrap"><table id="candidate-defense"></table></div>
+          <h3>All candidate classifications</h3>
+          <div class="table-wrap atlas"><table id="atlas"></table></div>
+          <details>
+            <summary>Complete selected candidate evidence</summary>
+            <pre id="candidate-json"></pre>
+          </details>
+        </section>
+        <section>
+          <p class="eyebrow">05 / SEPARATE UNANIMITY FROM CORE MEMBERSHIP</p>
+          <h2>Which argument was lost, and why?</h2>
+          <div class="table-wrap"><table id="acceptance"></table></div>
+          <button id="export">
+            Download independently checkable certificate
+          </button>
+          <p class="note">
+            The certificate contains both core computations, every subset and
+            every pruning obligation. No input leaves the browser.
+          </p>
+        </section>
+        <section>
+          <p class="eyebrow">THE METHOD / FINITE BY CONTRACT</p>
+          <h2>Two independent ways<br />to check the answer.</h2>
+          <p>
+            The native generator uses bitset admissibility and parent
+            intersections. Its separate checker exhausts complete three-valued
+            labellings, derives the parent families from their in/undec sets,
+            and checks maximal complete positions inside each pool. A set-based
+            reconstruction verifies every defense and removal record. An
+            optional external reference runs PyArg, credited rather than copied.
+          </p>
+          <pre>
+argumentlab-ideal examples/ideal.json --output report.json
+argumentlab-ideal report.json --verify</pre>
+          <ul id="limits"></ul>
+          <p>
+            Preferred and semi-stable families are nonempty for the finite
+            frameworks here. Eager uniqueness is not asserted for arbitrary
+            infinite frameworks. Attacks outside the candidate pool still count;
+            inducing a new graph changes the question.
+          </p>
+          <details>
+            <summary>Complete report</summary>
+            <pre id="report-json"></pre>
+          </details>
+        </section>
+      </div>
+    </main>
+    <footer>
+      ArgumentLab / original finite core inspector /
+      <a href="https://github.com/midya8/argumentlab">source</a> /
+      <a href="https://github.com/midya8/argumentlab/blob/main/IDEAL.md"
+        >method and published foundations</a
+      >
+    </footer>
+    <script type="module" src="ideal-app.js"></script>
+  </body>
+</html>
