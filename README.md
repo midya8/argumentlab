@@ -1,10 +1,23 @@
-# ArgumentLab: defense, not a vote
+# ArgumentLab
 
 [Live inspector](https://midya8.github.io/argumentlab/) · [Method and six inspected sources](METHOD.md)
 
 An exact, finite abstract-argumentation inspector. Given arguments and directed attacks, inspect every subset's conflicts and defense responses, then compare nine extension families. Independent Python bitsets and JavaScript sets agree on complete computational witnesses. No model, API or private dataset.
 
-## What it makes visible
+## Choose an inspector
+
+- **[Extension families](#base-report):** enumerate subsets, defenses, grounded steps, labellings and acceptance under nine semantics.
+- **[Attack switches](#attack-switch-sensitivity-extension):** hold the vocabulary fixed and inspect all configurations of supplied hypothetical edits.
+- **[SCC recursion](#scc-recursion-03):** inspect CF2/stage2 component restrictions and recomputed subproblems.
+- **[Ideal/eager](#idealeager-semantics-04):** find the greatest admissible subset of the preferred/semi-stable intersection, retaining every pruning round.
+
+These are different definitions over supplied attacks, not rankings of truth,
+persuasion or argument strength. Empty extension families need special care:
+classical skeptical acceptance can be vacuous, as the example below shows.
+
+The current suite runs **53 Python tests and 18 Node/actual-Chrome tests**. Counts in the release sections below describe the earlier checks, not additional current tests. These are bounded definition and integration checks, not evidence of benchmark superiority.
+
+## Base report
 
 - Every attacker and every selected defender, including unanswered attackers and self attacks.
 - Conflict-free, admissible, complete, naive, preferred, stable, semi-stable, stage and grounded families, with every tie retained.
@@ -15,7 +28,7 @@ An exact, finite abstract-argumentation inspector. Given arguments and directed 
 
 Original strict controls show a smaller preferred extension can coexist with a larger one, preferred intersection can exceed grounded and can even fail admissibility, and stage can differ from semi-stable. These distinguish definitions rather than rank a universally best semantics.
 
-## Do not miss the empty-family distinction
+## Empty-family conventions
 
 For a self-attacking argument, no stable extension exists. Classical skeptical acceptance is vacuously true because no extension excludes the argument. That does not mean a position accepts it: credulous acceptance is false. The separate `skeptical_nonvacuous` field is null and `exists` is false. The interface shows a warning. By contrast, a zero-argument framework has one empty extension `[0]`, not an empty family `[]`.
 
@@ -32,9 +45,9 @@ sh tools/wheel_smoke.sh
 python -m http.server 8000 --directory docs
 ```
 
-Open http://localhost:8000. Node22+ and Chrome are required for browser checks; `CHROME_BIN` can select Chrome. `uv` is needed for the isolated wheel check. The native CLI otherwise uses Python3.10+ with no runtime dependency. CI runs Python3.10-3.13 and regenerates the retained JSON exactly. The browser runs entirely locally after static assets load.
+Open http://localhost:8000. Node 22+ and Chrome are required for browser checks; `CHROME_BIN` can select Chrome. `uv` is needed for the isolated wheel check. The native CLI otherwise uses Python 3.10+ with no runtime dependency. CI runs Python 3.10-3.13 and regenerates the retained JSON exactly. The browser runs entirely locally after static assets load.
 
-## Checks, not a benchmark
+## Base-inspector checks
 
 19 Python test functions cover every one of the 531 directed frameworks with zero through three arguments, including loops, plus 120 seeded larger frameworks, an independent set-based family oracle and exhaustive three-valued labelling enumeration. Witness replay checks every attacker/defender row, strict superset/range witness, acceptance quantifier and grounded step. Permutation, strict contrast, input/no-mutation and CLI checks are included.
 
@@ -42,7 +55,7 @@ Five Node/actual-Chrome tests compare all 531 full native reports on 344,023 exa
 
 Counts describe original bounded controls and test coverage, not speed, solver quality or novel research.
 
-## Honest limits
+## Scope and limits
 
 Eight arguments maximum, all subsets enumerated. Supplied attack relations are assumptions, not evidence about real-world truth, argument strength, debate winners or safe decisions. This uses established Dung semantics. No scalable/new solver, structured-argument construction, dialogue game, probability model, benchmark superiority or machine-checked proof claim. Native/browser JSON parser differences are documented in the method. Not affiliated with existing ArguLab or ARGTEACH systems; no external solver code, examples or datasets copied.
 
@@ -63,27 +76,27 @@ python -m argumentlab.switches examples/switches.json --output /tmp/switch-repor
 PYTHONPATH=. python tools/build_switch_audits.py
 ```
 
-All 19 original tests and five original Node/Chrome tests remain. Combined checks now run 32 Python tests on four versions and ten Node/actual-Chrome tests. New native checks cover every one of the 256 two-argument base-graph/switch-set pairs, all 72 semantics/mode/target combinations, 80 seeded larger systems and every retained control with an independent family oracle. Cross-language equality covers 256 full sensitivity reports, 21 retained reports and another 152 mode/seeded cases. The new browser suite checks all 209 configurations, 5,205 subset/defense records, 802 acceptance cards, 423 transitions and both exports, with all 21 controls at 320/390/1280. Installed wheel reproduces both original and switch reports, five module origins and both console/module CLIs. See the extension method for exact scalar counts and boundaries.
+All 19 original tests and five original Node/Chrome tests remain. The switch release checked 32 combined Python tests on four versions and ten Node/actual-Chrome tests. New native checks cover every one of the 256 two-argument base-graph/switch-set pairs, all 72 semantics/mode/target combinations, 80 seeded larger systems and every retained control with an independent family oracle. Cross-language equality covers 256 full sensitivity reports, 21 retained reports and another 152 mode/seeded cases. The new browser suite checks all 209 configurations, 5,205 subset/defense records, 802 acceptance cards, 423 transitions and both exports, with all 21 controls at 320/390/1280. Installed wheel reproduces both original and switch reports, five module origins and both console/module CLIs. See the extension method for exact scalar counts and boundaries.
 
-## SCC recursion: a cycle can split after a choice
+## SCC recursion (0.3)
 
 [Open the CF2/stage2 inspector](https://midya8.github.io/argumentlab/scc.html) · [Exact contract, reproduction and inspected foundations](SCC.md)
 
-Version0.3 adds a separate six-argument SCC-recursive inspector. Every candidate retains all component-defeat edges, restricted child graphs and child membership obligations. Recompute SCCs after deletion and drill into the surviving child with the selected part preserved. Compare global naive/stage against CF2/stage2 without treating them as a ranking. An independent set-based verifier checks every record and a second published fixed-point characterization; optional hash-pinned ASPARTIX/clingo checks agree on725 frameworks and1,450 extension families. Native/JavaScript full reports agree on725 frameworks,3,052 induced subproblems,16,375 candidates and38,184 obligations.
+Version 0.3 adds a separate six-argument SCC-recursive inspector. Every candidate retains all component-defeat edges, restricted child graphs and child membership obligations. Recompute SCCs after deletion and drill into the surviving child with the selected part preserved. Compare global naive/stage against CF2/stage2 without treating them as a ranking. An independent set-based verifier checks every record and a second published fixed-point characterization; optional hash-pinned ASPARTIX/clingo checks agree on 725 frameworks and 1,450 extension families. Native/JavaScript full reports agree on 725 frameworks, 3,052 induced subproblems, 16,375 candidates and 38,184 obligations.
 
 ```sh
 argumentlab-scc examples/scc.json --output /tmp/scc.json
 python -m argumentlab.scc --verify /tmp/scc.json
 ```
 
-The full suite now has39 Python functions on3.10-3.13 and15 Node/Chrome tests. New Chrome checks cover42 reports at320/390/1280,171 subproblems,1,056 candidate selections and14 actual independently verified downloads. The installed wheel reproduces19 defense,21 switch and14 SCC controls outside the checkout, checks seven module origins, rejects14 forged SCC reports and checks both generation and verification entrypoints. These are bounded coverage counts, not benchmark claims. Existing inspectors remain separate; published semantics/encodings are credited inSCC.md. No new theorem, scalable solver, human persuasion or universal-semantics ranking is claimed.
+The SCC release checked 39 Python functions on 3.10-3.13 and 15 Node/Chrome tests. New Chrome checks cover 42 reports at 320/390/1280, 171 subproblems, 1,056 candidate selections and 14 actual independently verified downloads. The installed wheel reproduces 19 defense, 21 switch and 14 SCC controls outside the checkout, checks seven module origins, rejects 14 forged SCC reports and checks both generation and verification entrypoints. These are bounded coverage counts, not benchmark claims. Existing inspectors remain separate; published semantics/encodings are credited in SCC.md. No new theorem, scalable solver, human persuasion or universal-semantics ranking is claimed.
 
-## ArgumentLab0.4: unanimity is not self-defense
+## Ideal/eager semantics (0.4)
 
 [Live ideal/eager inspector](https://midya8.github.io/argumentlab/ideal.html) · [Method, scope and inspected foundations](IDEAL.md)
 
-Intersect preferred or semi-stable positions, then keep the greatest subset that defends itself against every original attacker. A shared argument can lose its defender when another shared argument is pruned. The default original control shows152→136→128→128, with isolated a7 surviving. A single pass and an induced-pool graph both give the wrong answer.
+Intersect preferred or semi-stable positions, then keep the greatest subset that defends itself against every original attacker. A shared argument can lose its defender when another shared argument is pruned. The default original control shows 152→136→128→128, with isolated a7 surviving. A single pass and an induced-pool graph both give the wrong answer.
 
-Inspect both parent families, simultaneous removal rounds, every original attacker and response, all256 bounded candidate subsets, strict eligible supersets and per-argument membership/removal records. Export the certificate and replay it with `argumentlab-ideal report.json --verify`. Fourteen original controls, all531 graphs on0..3 arguments and100 seeded graphs agree across native bitsets, independent complete-labelling replay and JavaScript sets. Optional actual PyArg2.0.2 matches the same645 frameworks' ideal/eager families.
+Inspect both parent families, simultaneous removal rounds, every original attacker and response, all 256 bounded candidate subsets, strict eligible supersets and per-argument membership/removal records. Export the certificate and replay it with `argumentlab-ideal report.json --verify`. Fourteen original controls, all 531 graphs on 0..3 arguments and 100 seeded graphs agree across native bitsets, independent complete-labelling replay and JavaScript sets. Optional actual PyArg 2.0.2 matches the same 645 frameworks' ideal/eager families.
 
-Finite0..8 arguments only. Established ideal/eager semantics, not new theory, truth scoring, persuasion, scalable solving or arbitrary infinite-framework eager uniqueness. Original attackers outside the shared pool still count.
+Finite 0..8 arguments only. Established ideal/eager semantics, not new theory, truth scoring, persuasion, scalable solving or arbitrary infinite-framework eager uniqueness. Original attackers outside the shared pool still count.
